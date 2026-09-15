@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎯 Tarkov Manager
 
-## Getting Started
+Tarkov Manager is a web-based companion app for Escape from Tarkov built to help players manage wipe progression more efficiently. It brings together tools like quest tracking, raid planning and profit analysis in one convenient platform, so players can spend less time switching between resources and more time focusing on their objectives.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🗺️ Interactive Raid Map
+- Explore detailed maps with interactive markers.
+- Generate optimized routes based on your selected quests.
+- Reduce unnecessary backtracking and complete objectives more efficiently.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 📋 Quest Tracker
+- Track completed and active quests.
+- Monitor progression across traders.
+- Stay organized throughout your wipe.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🛣️ Progression Routes
+- Follow curated quest paths for major progression goals.
+- Includes routes for:
+  - **Kappa Container**
+  - **Mark of the Unheard**
+- View quest order and dependencies in a structured format.
 
-## Learn More
+### 💰 Raid Calculator
+- Compare raid investment against extracted value.
+- Track:
+  - Gear cost
+  - Consumable expenses
+  - Loot value
+  - Overall profit or loss
 
-To learn more about Next.js, take a look at the following resources:
+### 🏠 Hideout Planner
+- Receive reminders for upcoming hideout upgrades.
+- Track required materials before upgrades become available.
+- Plan resource collection more effectively.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🔫 Ammo Tier List
+- Browse and compare ammunition effectiveness.
+- Quickly identify the best rounds for penetration and damage.
+- Make informed loadout decisions before each raid.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🔧 Weapon Meta Builds
+- Browse effective and popular weapon builds.
+- Reference optimized attachments and configurations.
+- Experiment with builds before investing in expensive parts.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎯 Project Goal
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Escape from Tarkov often requires players to switch between multiple websites for quests, maps, ballistics, hideout planning, and progression tracking.
+
+Tarkov Manager aims to eliminate that friction by combining the most commonly used Tarkov utilities into one cohesive web application. The goal is to help players spend less time searching for information and more time playing the game.
+
+---
+
+## 🚀 Vision
+
+Tarkov Manager is designed to become an all-in-one companion for every stage of a Tarkov wipe by continuously expanding its toolkit with features that improve planning, efficiency, and decision-making.
+
+---
+
+## 🤝 Contributing
+
+Contributions, suggestions, and feature requests are welcome. Feel free to open an issue or submit a pull request to help improve Tarkov Manager.
+
+---
