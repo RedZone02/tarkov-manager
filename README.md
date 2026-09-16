@@ -62,6 +62,28 @@ Tarkov Manager is designed to become an all-in-one companion for every stage of 
 
 ---
 
+## 🛠️ Running locally
+
+```bash
+npm install
+npm run dev
+```
+
+The app works without any setup: progress is saved in your browser. To add accounts and cloud sync, connect a Supabase project.
+
+### Connecting Supabase
+
+1. Copy `.env.example` to `.env.local` and fill in the **Project URL** and **publishable key** from *Project Settings → API Keys* in the Supabase dashboard. Restart `npm run dev` after changing it.
+2. In *Authentication → URL Configuration*, set **Site URL** to your site (for example `http://localhost:3000`) and add `http://localhost:3000/**` under **Redirect URLs**. Add your production URL the same way when you deploy.
+3. In *Authentication → Sign In / Providers*:
+   - **Email**: Supabase's built-in email service only delivers to members of your Supabase team, at 2 emails per hour. Either turn off **Confirm email**, or set up custom SMTP under *Authentication → Emails* before inviting other players.
+   - **Discord**: create an application at the [Discord Developer Portal](https://discord.com/developers/applications), add `https://<project-ref>.supabase.co/auth/v1/callback` as an OAuth2 redirect, then paste the client ID and secret into the Discord provider.
+   - **Google**: create an OAuth client (type *Web application*) in [Google Cloud Console](https://console.cloud.google.com/apis/credentials), add the same callback URL as an authorized redirect URI, then paste the client ID and secret into the Google provider.
+
+Signed-out visitors keep using browser storage. When someone signs in, any progress saved in that browser is merged into their account and removed from the browser.
+
+---
+
 ## 🤝 Contributing
 
 Contributions, suggestions, and feature requests are welcome. Feel free to open an issue or submit a pull request to help improve Tarkov Manager.

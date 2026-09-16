@@ -54,6 +54,33 @@ export function writeStored<T>(key: string, value: T) {
   notify(key);
 }
 
+export function hasStored(key: string): boolean {
+  return getRaw(key) !== null;
+}
+
+export function removeStored(key: string) {
+  try {
+    localStorage.removeItem(PREFIX + key);
+  } catch {}
+  memoryStore.delete(key);
+  snapshots.delete(key);
+  notify(key);
+}
+
+export function removeStoredByPrefix(keyPrefix: string) {
+  const keys = new Set<string>();
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const fullKey = localStorage.key(i);
+      if (fullKey?.startsWith(PREFIX + keyPrefix)) keys.add(fullKey.slice(PREFIX.length));
+    }
+  } catch {}
+  for (const key of memoryStore.keys()) {
+    if (key.startsWith(keyPrefix)) keys.add(key);
+  }
+  keys.forEach(removeStored);
+}
+
 export function subscribeStored(key: string, listener: () => void) {
   if (!crossTabListenerAttached) {
     crossTabListenerAttached = true;

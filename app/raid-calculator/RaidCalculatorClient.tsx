@@ -7,6 +7,7 @@ import type { GameMode } from '@/lib/game-mode';
 import { useRaidLog } from '@/lib/storage/hooks';
 import type { RaidLogEntry } from '@/lib/storage/types';
 import type { ItemSummary } from '@/lib/tarkov/types';
+import { randomUuid } from '@/lib/uuid';
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
 import { Card, CardTitle } from '../components/ui/Card';
@@ -99,7 +100,7 @@ export default function RaidCalculatorClient({ mode, mapNames }: { mode: GameMod
 
   function saveRaid() {
     const entry: RaidLogEntry = {
-      id: typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : newKey(),
+      id: randomUuid(),
       createdAt: new Date().toISOString(),
       mapName,
       survived,

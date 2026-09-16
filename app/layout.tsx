@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "@/lib/auth/context";
+import { getCurrentUser } from "@/lib/auth/server";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { themeInitScript } from "@/lib/theme";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import ProgressSync from "./components/ProgressSync";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,16 +28,21 @@ export const metadata: Metadata = {
     "All-in-one companion app for Escape from Tarkov. Manage quests, raid routes, hideout planning, and more in one place.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const user = await getCurrentUser();
+
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="flex min-h-dvh flex-col bg-bg font-sans text-text">
-        <Header />
-        {children}
-        <Footer />
+        <AuthProvider enabled={isSupabaseConfigured} initialUser={user}>
+          <ProgressSync />
+          <Header />
+          {children}
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

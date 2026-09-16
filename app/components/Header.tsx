@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { cn } from '@/lib/cn';
 import { features } from '@/lib/features';
+import AccountMenu from './AccountMenu';
 import ModeSwitch from './ModeSwitch';
 import ThemeToggle from './ThemeToggle';
 
@@ -59,6 +60,7 @@ export default function Header() {
         <div className="ml-auto flex items-center gap-2 xl:ml-0">
           <ModeSwitch className="hidden sm:inline-flex" />
           <ThemeToggle />
+          <AccountMenu />
           <button
             type="button"
             className="inline-flex size-9 items-center justify-center rounded-lg text-muted transition-colors hover:bg-surface-2 hover:text-text xl:hidden"
